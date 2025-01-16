@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag noam070/webapp:${{ github.run_number }}-${GITHUB_SHA}
     - name: docker login
-      run: docker login -u ${{ vers.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
+      run: docker login -u ${{ vars.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
     - name: docker push
       run: docker push noam070/webapp:${{ github.run_number }}-${GITHUB_SHA}
     
